@@ -912,6 +912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombre: Enemigo
+  id: 1
   statusPanel: {fileID: 900352928}
   combatManager: {fileID: 973044756}
 --- !u!1 &604139868
@@ -1520,6 +1521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombre: Xion
+  id: 0
   statusPanel: {fileID: 1049612961}
   combatManager: {fileID: 973044756}
   skillPanel: {fileID: 155941099}

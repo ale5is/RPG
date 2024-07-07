@@ -11,7 +11,6 @@ public class Controller_Player : MonoBehaviour
     public new Transform camera;
     public float gravedad;
     private Vector3 direccion;
-    private SaveSystem saveSystem;
     public static Controller_Player instance;
 
     private void Awake()
@@ -20,22 +19,12 @@ public class Controller_Player : MonoBehaviour
     }
     private void Start()
     {
-       
         controller=GetComponent<CharacterController>();
-        saveSystem=FindObjectOfType<SaveSystem>();
     }
 
     private void Update()
     {
         Movement();
-        if (Input.GetKeyUp(KeyCode.Escape)) 
-        {
-            saveSystem.LoadPosition();
-        }
-        if (Input.GetKeyUp(KeyCode.C))
-        {
-            saveSystem.SavePosition();
-        }
     }
     private void Movement()
     {
@@ -66,17 +55,9 @@ public class Controller_Player : MonoBehaviour
         if (other.gameObject.CompareTag("Enemigo"))
         {
             SceneManager.LoadScene(1);
-            saveSystem.SavePosition();
+
         }
         else { }
     }
-    public Vector3 Position()
-    {
-        return transform.position;
-    }
-
-    public void SetPosition(Vector3 pos)
-    {
-        transform.position = pos;
-    }
+    
 }

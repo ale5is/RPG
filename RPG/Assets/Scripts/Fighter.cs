@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Fighter : MonoBehaviour
 {
     public string nombre;
+    public int id;
     public StatusPanel statusPanel;
     public CombatManager combatManager;
 

@@ -22,7 +22,6 @@ public class CombatManager : MonoBehaviour
 
     private bool victoria=false;
 
-    private SaveSystem saveSystem;
     public static Controller_Player player;
 
     void Start()
@@ -38,7 +37,6 @@ public class CombatManager : MonoBehaviour
         this.fighterIndex = -1;
         this.isCombatActive = true;
         StartCoroutine(this.CombatLoop());
-        saveSystem = FindObjectOfType<SaveSystem>();
         player = FindAnyObjectByType<Controller_Player>();
     }
     private void Update()
@@ -76,9 +74,18 @@ public class CombatManager : MonoBehaviour
                 {
                     if (fgtr.isAlive == false)
                     {
-                        this.isCombatActive = false;
+                        Debug.Log(fgtr.id);
+                        if(fgtr.id == 1)
+                        {
+                            LogPanel.write("Victoria");
+                        }
+                        else
+                        {
+                            LogPanel.write("Derrota");
+                        }
 
-                        LogPanel.write("Victoria");
+                        
+                        this.isCombatActive = false;                       
                         victoria = true;
                     }
                     else
