@@ -9,12 +9,15 @@ public class Inventory : MonoBehaviour
     public GameObject inv;
     public bool Activar;
     public GameObject Arma;
+    public ItemContador item;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Item"))
         {
             other.gameObject.SetActive(false);
+            item.ItemGuardado();
+            
             Arma.gameObject.SetActive(true);
             for(int i=0; i<Bag.Count; i++)
             {
