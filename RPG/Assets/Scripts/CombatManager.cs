@@ -24,8 +24,14 @@ public class CombatManager : MonoBehaviour
 
     public static Controller_Player player;
 
+    public GameObject controlador;
+    private void Awake()
+    {
+        controlador = GameObject.FindGameObjectWithTag("Save");
+    }
     void Start()
     {
+        
         LogPanel.write("Batalla Iniciada");
 
         foreach (var fgtr in fighters)
@@ -43,7 +49,12 @@ public class CombatManager : MonoBehaviour
     {
         if (victoria)
         {
+            controlador.GetComponent<Controlador>().combate = true;
+            controlador.GetComponent<Controlador>().GuardarDatos();
+            controlador.GetComponent<Controlador>().combate = false;
             SceneManager.LoadScene(0);
+            controlador.GetComponent<Controlador>().activar = 2;
+
         }
     }
 
@@ -74,10 +85,13 @@ public class CombatManager : MonoBehaviour
                 {
                     if (fgtr.isAlive == false)
                     {
+                        
                         Debug.Log(fgtr.id);
                         if(fgtr.id == 1)
                         {
+                            
                             LogPanel.write("Victoria");
+                            fighters[0].GetComponent<PlayerFigther>().VidaActual();
                         }
                         else
                         {
@@ -102,6 +116,7 @@ public class CombatManager : MonoBehaviour
                 this.fighterIndex = (this.fighterIndex + 1) % this.fighters.Length;
                 var currentTurn = this.fighters[this.fighterIndex];
                 LogPanel.write($"{currentTurn.name} tiene el turno.");
+                
                 currentTurn.InitTurn();
                 
                 this.combatStatus = CombatStatus.WAITING_FOR_FIGTHER;

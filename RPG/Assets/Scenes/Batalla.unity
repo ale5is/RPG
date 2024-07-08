@@ -1411,9 +1411,10 @@ GameObject:
   - component: {fileID: 768539733}
   - component: {fileID: 768539732}
   - component: {fileID: 768539736}
+  - component: {fileID: 768539737}
   m_Layer: 0
   m_Name: Xion
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1524,7 +1525,24 @@ MonoBehaviour:
   id: 0
   statusPanel: {fileID: 1049612961}
   combatManager: {fileID: 973044756}
+  vida: 1.2
+  vidaMax: 0
+  Save: {fileID: 0}
   skillPanel: {fileID: 155941099}
+--- !u!114 &768539737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768539731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0fe76051ee4d74888bf5b29841244f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlador: {fileID: 0}
+  jugador: {fileID: 0}
 --- !u!1 &772593571
 GameObject:
   m_ObjectHideFlags: 0
@@ -1901,6 +1919,7 @@ MonoBehaviour:
   fighters:
   - {fileID: 768539736}
   - {fileID: 596300419}
+  controlador: {fileID: 0}
 --- !u!4 &973044757
 Transform:
   m_ObjectHideFlags: 0
@@ -3161,7 +3180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1331925456746082376, guid: 73a9b44de305fc44cb12b42e77b74d33, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000021935
+      value: 0.000022888184
       objectReference: {fileID: 0}
     - target: {fileID: 1978130245147746250, guid: 73a9b44de305fc44cb12b42e77b74d33, type: 3}
       propertyPath: m_SizeDelta.x
@@ -3170,6 +3189,10 @@ PrefabInstance:
     - target: {fileID: 1978130245147746250, guid: 73a9b44de305fc44cb12b42e77b74d33, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2126823467401044050, guid: 73a9b44de305fc44cb12b42e77b74d33, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2505031455737302981, guid: 73a9b44de305fc44cb12b42e77b74d33, type: 3}
       propertyPath: m_Name
@@ -3314,6 +3337,10 @@ PrefabInstance:
     - target: {fileID: 3097148782998131440, guid: 493eba886a0bd7843bd780d66a23dd16, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3198747252095653955, guid: 493eba886a0bd7843bd780d66a23dd16, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4345586476403663667, guid: 493eba886a0bd7843bd780d66a23dd16, type: 3}
       propertyPath: m_Name

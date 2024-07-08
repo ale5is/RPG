@@ -12,14 +12,14 @@ public class Controller_Player : MonoBehaviour
     public float gravedad;
     private Vector3 direccion;
     public static Controller_Player instance;
+    public int numEscena;
+
+    public GameObject controlador;
 
     private void Awake()
     {
-        
-    }
-    private void Start()
-    {
-        controller=GetComponent<CharacterController>();
+        controller = GetComponent<CharacterController>();
+        controlador = GameObject.FindGameObjectWithTag("Save");
     }
 
     private void Update()
@@ -54,8 +54,16 @@ public class Controller_Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemigo"))
         {
+            controlador.GetComponent<Controlador>().activar = 1;
             SceneManager.LoadScene(1);
-
+        }
+        else if(other.gameObject.CompareTag("Puerta"))
+        {
+            Debug.Log("a");
+            numEscena=other.GetComponent<CambiarEscena>().escena;
+            //controlador.GetComponent<Controlador>().activar = 1;
+            
+            SceneManager.LoadScene(numEscena);
         }
         else { }
     }

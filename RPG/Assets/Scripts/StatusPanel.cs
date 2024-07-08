@@ -11,6 +11,7 @@ public class StatusPanel : MonoBehaviour
     public TMP_Text nombreLabel,nivelLabel,HpLabel;
     public Slider hpSlider;
     public Image hpSliderBar;
+   
 
     public void setStats(string nombre, Stats stats)
     {
@@ -21,6 +22,7 @@ public class StatusPanel : MonoBehaviour
     public void SetHP(float Hp, float maxHp)
     {
         this.HpLabel.text=$"{Mathf.RoundToInt(Hp)}/{Mathf.RoundToInt(maxHp)}";
+        
         float porcentaje=Hp/maxHp;
 
         this.hpSlider.value = porcentaje;

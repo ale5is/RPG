@@ -6,16 +6,39 @@ using System.IO;
 public class Controlador : MonoBehaviour
 {
     public GameObject jugador;
+    public int vidaJugador;
+    public int vidaMaxJugador;
     public string archivoDeGuardado;
     public Datos datos=new Datos();
+    public Datos nuevosDatos = new Datos();
+    public int activar=0;
+    public bool combate=false;
+    public static Controlador Instance;
     private void Awake()
     {
         archivoDeGuardado = Application.dataPath + "/Scripts/SaveSystem/datosJuego.json";
 
         jugador = GameObject.FindGameObjectWithTag("Player");
+        if (Controlador.Instance == null) 
+        {
+            Controlador.Instance = this;
+            DontDestroyOnLoad(this.gameObject); 
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
     }
     private void Update()
     {
+        
+        if (activar==1)
+        {
+            activar = 0;
+            GuardarDatos();
+        }
+        
         if (Input.GetKeyDown(KeyCode.G)) 
         {
             GuardarDatos();
@@ -25,7 +48,7 @@ public class Controlador : MonoBehaviour
             CargarDatos();
         }
     }
-    private void CargarDatos()
+    public void CargarDatos()
     {
         if (File.Exists(archivoDeGuardado)) 
         {
@@ -36,6 +59,7 @@ public class Controlador : MonoBehaviour
             posJugador.enabled = false;
             posJugador.transform.position = datos.posicion;
             posJugador.enabled = true;
+            jugador.GetComponent<vida>().vidaActual = datos.vida;
 
 
         }
@@ -45,13 +69,21 @@ public class Controlador : MonoBehaviour
         }
     }
 
-    private void GuardarDatos()
+    public void GuardarDatos()
     {
-        Datos nuevosDatos = new Datos()
+        if (combate) 
         {
-            posicion=jugador.transform.position
-        };
+            nuevosDatos.vida = (int)jugador.GetComponent<PlayerFigther>().vida;
+        }
+        else 
+        {
+            nuevosDatos.vida = jugador.GetComponent<vida>().vidaActual;
+            nuevosDatos.posicion = jugador.transform.position;
+        }
 
+        
+        
+        vidaJugador = nuevosDatos.vida;
         string cadenaJSON=JsonUtility.ToJson(nuevosDatos);
 
         File.WriteAllText(archivoDeGuardado, cadenaJSON);

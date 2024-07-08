@@ -8,6 +8,10 @@ TagManager:
   - Item
   - Pared
   - Llave
+  - Save
+  - Puerta
+  - Trampa
+  - Cambiante
   layers:
   - Default
   - TransparentFX
