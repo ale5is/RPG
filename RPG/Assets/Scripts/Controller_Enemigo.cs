@@ -15,7 +15,7 @@ public class Controller_Enemigo : MonoBehaviour
     public bool quieto=false;
     void Start()
     {
-        target = GameObject.Find("Xion");
+        target = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame

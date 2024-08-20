@@ -9,13 +9,16 @@ public class PlayerSkillPanel : MonoBehaviour
     public GameObject [] skillBotones;
     public TMP_Text[] skillBotonesLabel;
 
+    private PlayerFigther targetFigther;
+
     void Awake()
     {
-        this.Ocultar();
-        foreach(var btn in this.skillBotones)
+        foreach (var btn in this.skillBotones)
         {
             btn.SetActive(false);
         }
+        this.Ocultar();
+        
     }
 
     public void ConfigurarBotones(int index,string skillNombre)
@@ -23,14 +26,23 @@ public class PlayerSkillPanel : MonoBehaviour
         this.skillBotones[index].SetActive(true);
         this.skillBotonesLabel[index].text = skillNombre;
     }
-
-    public void Mostrar()
+    public void OnSkillButtonClick(int index)
     {
+        this.targetFigther.EjecturSkill(index);
+    }
+    public void MostrarJugador(PlayerFigther newTarget)
+    {
+        
         this.gameObject.SetActive(true);
+        this.targetFigther=newTarget;
     }
 
     public void Ocultar()
     {
         this.gameObject.SetActive(false);
+        foreach(var btn in this.skillBotones)
+        {
+            btn.SetActive(false);
+        }
     }
 }

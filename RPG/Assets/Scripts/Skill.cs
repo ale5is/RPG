@@ -11,7 +11,11 @@ public abstract class Skill : MonoBehaviour
     public GameObject effectPrfb;
     protected Fighter emisor;
     protected Fighter receptor;
-    
+    protected Queue<string> messages;
+    void Awake()
+    {
+         this.messages=new Queue<string>();
+    }
     private void Animate()
     {
         var go = Instantiate(this.effectPrfb, this.receptor.transform.position, Quaternion.identity);
@@ -33,5 +37,16 @@ public abstract class Skill : MonoBehaviour
         this.emisor = _emisor;
         this.receptor = _receptor;
     }
-    public abstract void OnRun();
+    public string TomarSiguienteMensaje()
+    {
+        if (this.messages.Count != 0)
+        {
+            return this.messages.Dequeue();
+        }
+        else
+        {
+            return null;
+        }
+    }
+    protected abstract void OnRun();
 }

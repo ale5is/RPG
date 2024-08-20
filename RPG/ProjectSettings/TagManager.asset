@@ -12,6 +12,7 @@ TagManager:
   - Puerta
   - Trampa
   - Cambiante
+  - Player2
   layers:
   - Default
   - TransparentFX

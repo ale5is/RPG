@@ -8,6 +8,7 @@ public abstract class Fighter : MonoBehaviour
     public int id;
     public StatusPanel statusPanel;
     public CombatManager combatManager;
+    public List<ModificarEstado> modificarEstados;
 
     protected Stats stats;
     protected Skill[] skills;
@@ -21,6 +22,8 @@ public abstract class Fighter : MonoBehaviour
         this.statusPanel.setStats(this.nombre, this.stats);
 
         this.skills=this.GetComponentsInChildren<Skill>();
+
+        this.modificarEstados = new List<ModificarEstado>();
     }
 
     public void ModifyHp(float cantidad)
@@ -32,7 +35,12 @@ public abstract class Fighter : MonoBehaviour
 
     public Stats GetCurrentStats()
     {
-        return this.stats; 
+        Stats modedStast = this.stats;
+        foreach(var mod in this.modificarEstados)
+        {
+            modedStast = mod.Aplicar(modedStast);
+        }
+        return modedStast; 
     }
 
     public abstract void InitTurn();

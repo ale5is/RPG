@@ -6,13 +6,19 @@ public class Controller_Camara : MonoBehaviour
 {
     public Transform seguir;
     public float distancia;
-    // Start is called before the first frame update
-    void Start()
+    public static Controller_Camara Instance;
+    private void Awake()
     {
-        
+        if (Controller_Camara.Instance == null)
+        {
+            Controller_Camara.Instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
-
-    // Update is called once per frame
     void Update()
     {
         transform.position=seguir.position+new Vector3(0,0,-distancia);

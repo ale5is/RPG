@@ -24,6 +24,7 @@ public class ActualizarEscena : MonoBehaviour
             chequeo.activar = 0;
             chequeo.jugador= jugador;
             chequeo.CargarDatos();
+
         }
     }
 }

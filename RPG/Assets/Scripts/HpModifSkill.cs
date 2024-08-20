@@ -14,9 +14,18 @@ public class HpModifSkill : Skill
     public float cantidad;
     public HpModifType modifType;
 
-    public override void OnRun()
+    [Range(0f, 1f)]
+    public float critChance=0;
+
+    protected override void OnRun()
     {
         float cantidad = this.GetModificacion();
+        float dice=Random.Range(0f,1f);
+        if (dice <= this.critChance)
+        {
+            cantidad *= 2f;
+            this.messages.Enqueue("Daño crítico!");
+        }
         this.receptor.ModifyHp(cantidad);
     }
     public float GetModificacion()

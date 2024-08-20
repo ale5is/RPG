@@ -11,15 +11,25 @@ public class Controller_Player : MonoBehaviour
     public new Transform camera;
     public float gravedad;
     private Vector3 direccion;
-    public static Controller_Player instance;
+    public static Controller_Player Instance;
     public int numEscena;
-
     public GameObject controlador;
+    public CanvasController canvasController;
 
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
         controlador = GameObject.FindGameObjectWithTag("Save");
+        
+        if (Controller_Player.Instance == null)
+        {
+            Controller_Player.Instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Update()
@@ -55,7 +65,11 @@ public class Controller_Player : MonoBehaviour
         if (other.gameObject.CompareTag("Enemigo"))
         {
             controlador.GetComponent<Controlador>().activar = 1;
+            
             SceneManager.LoadScene(1);
+            
+            //canvasController.ModoBatalla();
+            //canvasController.Cargar();
         }
         else if(other.gameObject.CompareTag("Puerta"))
         {

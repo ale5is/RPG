@@ -31,13 +31,7 @@ public class Inventory : MonoBehaviour
             }
         }
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         if (Activar)
@@ -49,7 +43,7 @@ public class Inventory : MonoBehaviour
             inv.SetActive(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.I))
         {
             Activar = !Activar;
         }

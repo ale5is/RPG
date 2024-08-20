@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2761655392596501701}
   - component: {fileID: 2002701921717229796}
   - component: {fileID: 5074146685645200898}
-  - component: {fileID: 1379569913785399486}
   m_Layer: 0
   m_Name: patron
   m_TagString: Llave
@@ -106,17 +105,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1379569913785399486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4606981466551919036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fd066f441a854a4fbc377b901f6bdaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  comparar: {fileID: 2100000, guid: 9fccbaf38f624d64199e821793486e5b, type: 2}
-  Puerta: {fileID: 0}

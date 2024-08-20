@@ -11,24 +11,23 @@ public class CambiarColor : MonoBehaviour
     private void Start()
     {
         cambiar = true;
-        Cambiar();
-        
-    }
-    private void Update()
-    {
-        
+        Cambiar();   
     }
     // Start is called before the first frame updat 
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && cambiar)
         {
 
             cambiar = false;
 
         }
-        
+        else if (other.gameObject.CompareTag("Player") && !cambiar)
+        {
+            cambiar = true;
+            Cambiar();
+        }
     }
     public void Cambiar()
     {
