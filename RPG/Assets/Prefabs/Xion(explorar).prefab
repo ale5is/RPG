@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 7674491537227459770}
   - component: {fileID: 2252114334542063916}
   - component: {fileID: 8591501204312071282}
-  - component: {fileID: 5582854236600426579}
   - component: {fileID: 6543686213076876290}
   m_Layer: 0
   m_Name: Xion(explorar)
@@ -187,24 +186,6 @@ MonoBehaviour:
   Activar: 0
   Arma: {fileID: 6341993595002763609}
   item: {fileID: 0}
---- !u!114 &5582854236600426579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2203446522803987229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09987a493e345cd44abc858cc954e2c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Pared: {fileID: 0}
-  color1: {fileID: 2100000, guid: 1b71b71266025bc448f45d521aa808c1, type: 2}
-  color2: {fileID: 2100000, guid: 501322ca55898bc4b9124416175fb7e8, type: 2}
-  color3: {fileID: 2100000, guid: 9fccbaf38f624d64199e821793486e5b, type: 2}
-  color4: {fileID: 2100000, guid: 01fb91aeaece2e8498d015f0b3a30779, type: 2}
-  contador: 0
 --- !u!114 &6543686213076876290
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,9 +12,9 @@ public class ControllerPared : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
-        if (other.gameObject.CompareTag("Llave"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            var material = other.GetComponent<MeshRenderer>().material;
+            var material = GetComponent<MeshRenderer>().material;
             
             if (material.color == color4.color)
             {

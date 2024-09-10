@@ -371,6 +371,7 @@
 "Assets/Scripts/Inventory.cs"
 "Assets/Scripts/LogPanel.cs"
 "Assets/Scripts/NoDESTROY.cs"
+"Assets/Scripts/NoDestroyCnvas.cs"
 "Assets/Scripts/PlayerSkillPanel.cs"
 "Assets/Scripts/PosJugador.cs"
 "Assets/Scripts/Puzle/CambiarColor.cs"
