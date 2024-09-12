@@ -13,6 +13,7 @@ TagManager:
   - Trampa
   - Cambiante
   - Player2
+  - Limite
   layers:
   - Default
   - TransparentFX

@@ -382,6 +382,7 @@
 "Assets/Scripts/Puzle/LlaveContador.cs"
 "Assets/Scripts/Puzle/Puerta.cs"
 "Assets/Scripts/Puzle/PuertaAparecer.cs"
+"Assets/Scripts/Rendering/Distancia.cs"
 "Assets/Scripts/SaveSystem/ActualizarEscena.cs"
 "Assets/Scripts/SaveSystem/ActualizarEscenaBatalla.cs"
 "Assets/Scripts/SaveSystem/Controlador.cs"
