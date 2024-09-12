@@ -41,16 +41,16 @@ public class ObjectPooling : MonoBehaviour
 
     public GameObject SpawnProuPool(string tag,Vector3 position,Quaternion rotation)
     {
-        GameObject objecToSpawn=poolDirectionary[tag].Dequeue();
-        objecToSpawn.SetActive(true);
-        objecToSpawn.transform.position = position;
-        objecToSpawn.transform.rotation = rotation;
-        return objecToSpawn;
+        GameObject objectToSpawn = poolDirectionary[tag].Dequeue();
+
+        objectToSpawn.SetActive(true);
+        objectToSpawn.transform.position = position;
+        objectToSpawn.transform.rotation = rotation;
+
+        poolDirectionary[tag].Enqueue(objectToSpawn);
+
+        return objectToSpawn;
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

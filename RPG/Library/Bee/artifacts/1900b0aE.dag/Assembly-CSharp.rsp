@@ -372,6 +372,7 @@
 "Assets/Scripts/LogPanel.cs"
 "Assets/Scripts/NoDESTROY.cs"
 "Assets/Scripts/NoDestroyCnvas.cs"
+"Assets/Scripts/OPTIMIZADORES/Fuerza.cs"
 "Assets/Scripts/OPTIMIZADORES/Instanciar.cs"
 "Assets/Scripts/OPTIMIZADORES/ObjectPooling.cs"
 "Assets/Scripts/PlayerSkillPanel.cs"
