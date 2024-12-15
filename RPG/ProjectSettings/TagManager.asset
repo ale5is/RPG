@@ -15,6 +15,7 @@ TagManager:
   - Player2
   - Limite
   - Objeto
+  - Batalla
   layers:
   - Default
   - TransparentFX

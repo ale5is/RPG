@@ -67,7 +67,7 @@ public class Controller_Player : MonoBehaviour
             controlador.GetComponent<Controlador>().activar = 1;
             
             SceneManager.LoadScene(1);
-            
+            //controlador.GetComponent<Controlador>().combate = true;
             //canvasController.ModoBatalla();
             //canvasController.Cargar();
         }

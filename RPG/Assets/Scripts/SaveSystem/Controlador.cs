@@ -5,7 +5,7 @@ using System.IO;
 
 public class Controlador : MonoBehaviour
 {
-    public GameObject jugador;
+    public GameObject jugador,jugadorBatalla;
     public int vidaJugador;
     public int vidaMaxJugador;
     public string archivoDeGuardado;
@@ -47,6 +47,12 @@ public class Controlador : MonoBehaviour
         {
             CargarDatos();
         }
+
+        if (combate)
+        {
+            jugadorBatalla = GameObject.FindGameObjectWithTag("Batalla");
+            jugadorBatalla.GetComponent<vida>().vidaActual = vidaJugador;
+        }
     }
     public void CargarDatos()
     {
@@ -73,7 +79,8 @@ public class Controlador : MonoBehaviour
     {
         if (combate) 
         {
-            nuevosDatos.vida = (int)jugador.GetComponent<PlayerFigther>().vida;
+            jugadorBatalla = GameObject.FindGameObjectWithTag("Batalla");
+            nuevosDatos.vida = (int)jugadorBatalla.GetComponent<PlayerFigther>().vida;
         }
         else 
         {

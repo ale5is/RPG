@@ -17,11 +17,12 @@ public class PlayerFigther : Fighter
     void Awake()
     {
         Save = GameObject.FindGameObjectWithTag("Save");
-        vida = GetComponent<vida>().vidaActual;
+        Save.GetComponent<Controlador>().combate = true;
+        vida= Save.GetComponent<Controlador>().vidaJugador;
         this.stats = new Stats(21, vida, 50, 45, 20);
-        
-
     }
+ 
+
     public void VidaActual()
     {
         vida = stats.Hp;
