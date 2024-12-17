@@ -390,6 +390,7 @@
 "Assets/Scripts/SaveSystem/ActualizarEscenaBatalla.cs"
 "Assets/Scripts/SaveSystem/Controlador.cs"
 "Assets/Scripts/SaveSystem/Datos.cs"
+"Assets/Scripts/SaveSystem/PosicionJugador.cs"
 "Assets/Scripts/Skill.cs"
 "Assets/Scripts/spawn/SpawnPlayer.cs"
 "Assets/Scripts/Stats.cs"

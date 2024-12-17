@@ -11,7 +11,7 @@ public class SpawnPlayer : MonoBehaviour
         jugador = GameObject.FindGameObjectWithTag("Player");
         var posJugador = jugador.GetComponent<CharacterController>();
         posJugador.enabled = false;
-        posJugador.transform.position = transform.position;
+        posJugador.transform.position = transform.position+new Vector3(0,1.55f,0);
         posJugador.enabled = true;
     }
 

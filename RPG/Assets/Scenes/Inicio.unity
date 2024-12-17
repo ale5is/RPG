@@ -48973,7 +48973,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6543686213076876290, guid: 04bd1b7f10b07ca4b887a9a8cfe36da7, type: 3}
       propertyPath: vidaActual
-      value: 120
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7674491537227459770, guid: 04bd1b7f10b07ca4b887a9a8cfe36da7, type: 3}
       propertyPath: camera

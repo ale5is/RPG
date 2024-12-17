@@ -12,7 +12,7 @@ public class Controlador : MonoBehaviour
     public Datos datos=new Datos();
     public Datos nuevosDatos = new Datos();
     public int activar=0;
-    public bool combate=false;
+    public int combate=0;
     public static Controlador Instance;
     private void Awake()
     {
@@ -48,10 +48,11 @@ public class Controlador : MonoBehaviour
             CargarDatos();
         }
 
-        if (combate)
+        if (combate==1)
         {
             jugadorBatalla = GameObject.FindGameObjectWithTag("Batalla");
             jugadorBatalla.GetComponent<vida>().vidaActual = vidaJugador;
+            combate = 2;
         }
     }
     public void CargarDatos()
@@ -77,19 +78,20 @@ public class Controlador : MonoBehaviour
 
     public void GuardarDatos()
     {
-        if (combate) 
-        {
-            jugadorBatalla = GameObject.FindGameObjectWithTag("Batalla");
-            nuevosDatos.vida = (int)jugadorBatalla.GetComponent<PlayerFigther>().vida;
-        }
-        else 
+         if (combate == 0)
         {
             nuevosDatos.vida = jugador.GetComponent<vida>().vidaActual;
             nuevosDatos.posicion = jugador.transform.position;
         }
 
-        
-        
+        else if (combate==2) 
+        {
+            jugadorBatalla = GameObject.FindGameObjectWithTag("Batalla");
+            nuevosDatos.vida = (int)jugadorBatalla.GetComponent<PlayerFigther>().vida;
+            combate = 0;
+            
+        }
+
         vidaJugador = nuevosDatos.vida;
         string cadenaJSON=JsonUtility.ToJson(nuevosDatos);
 

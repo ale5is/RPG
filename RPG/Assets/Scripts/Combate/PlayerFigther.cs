@@ -17,7 +17,7 @@ public class PlayerFigther : Fighter
     void Awake()
     {
         Save = GameObject.FindGameObjectWithTag("Save");
-        Save.GetComponent<Controlador>().combate = true;
+        Save.GetComponent<Controlador>().combate = 1;
         vida= Save.GetComponent<Controlador>().vidaJugador;
         this.stats = new Stats(21, vida, 50, 45, 20);
     }

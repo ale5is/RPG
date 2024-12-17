@@ -34,7 +34,11 @@ public class Controller_Player : MonoBehaviour
 
     private void Update()
     {
-        Movement();
+        if (controlador.GetComponent<Controlador>().combate==0)
+        {
+            Movement();
+        }
+        
     }
     private void Movement()
     {

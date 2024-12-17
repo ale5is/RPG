@@ -28,7 +28,7 @@ public class CombatManager : MonoBehaviour
     private bool victoria=false;
 
     public static Controller_Player player;
-    public GameObject jugador;
+    public GameObject jugador, save;
 
     //public GameObject controlador;
     private void Awake()
@@ -62,6 +62,8 @@ public class CombatManager : MonoBehaviour
         this.isCombatActive = true;
         StartCoroutine(this.CombatLoop());
         player = FindAnyObjectByType<Controller_Player>();
+        save = GameObject.FindGameObjectWithTag("Save");
+        
     }
     private void Update()
     {
@@ -131,13 +133,18 @@ public class CombatManager : MonoBehaviour
                 {
                     LogPanel.write("Victoria");
                     this.isCombatActive = false;
+                    save.GetComponent<Controlador>().GuardarDatos();
                     SceneManager.LoadScene(0);
+                    save.GetComponent<Controlador>().CargarDatos();
+
                 }
                 if (defeat)
                 {
                     LogPanel.write("Derrota");
                     this.isCombatActive = false;
+                    save.GetComponent<Controlador>().GuardarDatos();
                     SceneManager.LoadScene(0);
+                    save.GetComponent<Controlador>().CargarDatos();
                 }
 
                 if(this.isCombatActive)
