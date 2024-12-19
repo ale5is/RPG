@@ -7,11 +7,11 @@ public class Stats
     public float Hp, maxHp,ataque, defensa, espiritu;
     public int nivel;
 
-    public Stats(int nivel,float maxHp,float ataque,float defensa,float espiritu)
+    public Stats(int nivel,float hp,float maxHp,float ataque,float defensa,float espiritu)
     {
         this.nivel = nivel;
+        this.Hp = hp;
         this.maxHp = maxHp;
-        this.Hp = maxHp;
         this.ataque = ataque;
         this.defensa = defensa;
         this.espiritu = espiritu;
@@ -19,6 +19,6 @@ public class Stats
 
     public Stats clone()
     {
-        return new Stats(this.nivel, this.maxHp, this.ataque, this.defensa, this.espiritu);
+        return new Stats(this.nivel,this.Hp, this.maxHp, this.ataque, this.defensa, this.espiritu);
     }
 }

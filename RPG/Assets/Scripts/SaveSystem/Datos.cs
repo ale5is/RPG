@@ -7,5 +7,6 @@ public class Datos
 {
     // Start is called before the first frame update
     public Vector3 posicion;
-    public int vida;
+    public int vidaJ1,vidaJ2;
+    public int nivelJ1,nivelJ2;
 }

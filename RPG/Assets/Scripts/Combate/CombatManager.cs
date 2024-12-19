@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.XPath;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -33,6 +34,7 @@ public class CombatManager : MonoBehaviour
     //public GameObject controlador;
     private void Awake()
     {
+        //save.GetComponent<Controlador>().GuardarDatos();
         //jugador = GameObject.FindGameObjectWithTag("Player");
         //PlayerTeam[0] = jugador.GetComponent<PlayerFigther>();
 
@@ -81,8 +83,8 @@ public class CombatManager : MonoBehaviour
     {
         while (this.isCombatActive)
         {
-            if(this.combatStatus==CombatStatus.WAITING_FOR_FIGTHER)
-            { 
+            if (this.combatStatus == CombatStatus.WAITING_FOR_FIGTHER)
+            {
                 yield return null;
             }
             else if (this.combatStatus == CombatStatus.FIGTHER_ACTION)
@@ -96,19 +98,19 @@ public class CombatManager : MonoBehaviour
                 //Espera la animacion de la skill
                 yield return new WaitForSeconds(currentFigtherSkill.animationDuration);
                 this.combatStatus = CombatStatus.CHECK_ACTION_MESSAGES;
-                
+
             }
-            else if(this.combatStatus == CombatStatus.CHECK_ACTION_MESSAGES)
+            else if (this.combatStatus == CombatStatus.CHECK_ACTION_MESSAGES)
             {
                 string nextMessage = this.currentFigtherSkill.TomarSiguienteMensaje();
-                if(nextMessage != null)
+                if (nextMessage != null)
                 {
                     LogPanel.write(nextMessage);
                     yield return new WaitForSeconds(2f);
                 }
                 else
                 {
-                    this.currentFigtherSkill= null;
+                    this.currentFigtherSkill = null;
                     this.combatStatus = CombatStatus.CHECK_FOR_VICTORY;
                     yield return null;
                 }
@@ -116,7 +118,7 @@ public class CombatManager : MonoBehaviour
             else if (this.combatStatus == CombatStatus.CHECK_FOR_VICTORY)
             {
                 bool arePlayerAlive = false;
-                foreach(var figther in this.PlayerTeam)
+                foreach (var figther in this.PlayerTeam)
                 {
                     arePlayerAlive |= figther.isAlive;
                 }
@@ -126,13 +128,20 @@ public class CombatManager : MonoBehaviour
                 {
                     areEnemyAlive |= figther.isAlive;
                 }
-                
+
                 bool victory = areEnemyAlive == false;
-                bool defeat=arePlayerAlive== false;
+                bool defeat = arePlayerAlive == false;
                 if (victory)
                 {
                     LogPanel.write("Victoria");
                     this.isCombatActive = false;
+                    int num1,num2,suma;
+                    num1=EnemyTeam[0].GetComponent<EnemyFigther>().CalculateXP(PlayerTeam[0].GetComponent<PlayerFigther>().nivel);
+                    num2=EnemyTeam[1].GetComponent<EnemyFigther>().CalculateXP(PlayerTeam[0].GetComponent<PlayerFigther>().nivel);
+                    suma=num1 + num2;
+                    PlayerTeam[0].GetComponent<PlayerFigther>().subirNivel(suma);
+                    PlayerTeam[1].GetComponent<PlayerFigther>().subirNivel(suma);
+                    
                     save.GetComponent<Controlador>().GuardarDatos();
                     SceneManager.LoadScene(0);
                     save.GetComponent<Controlador>().CargarDatos();
@@ -147,7 +156,7 @@ public class CombatManager : MonoBehaviour
                     save.GetComponent<Controlador>().CargarDatos();
                 }
 
-                if(this.isCombatActive)
+                if (this.isCombatActive)
                 {
                     this.combatStatus = CombatStatus.NEXT_TURN;
                 }
@@ -157,6 +166,7 @@ public class CombatManager : MonoBehaviour
             else if (this.combatStatus == CombatStatus.NEXT_TURN)
             {
                 yield return new WaitForSeconds(1f);
+                
 
                 
                 Fighter current = null;

@@ -16,6 +16,7 @@ TagManager:
   - Limite
   - Objeto
   - Batalla
+  - Spawn
   layers:
   - Default
   - TransparentFX

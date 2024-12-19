@@ -5,9 +5,9 @@ using System.IO;
 
 public class Controlador : MonoBehaviour
 {
-    public GameObject jugador,jugadorBatalla;
-    public int vidaJugador;
-    public int vidaMaxJugador;
+    public GameObject jugador,jugadorBatalla1,jugadorBatalla2;
+    public int vidaJugador1,vidaJugador2;
+    public int vidaMaxJugador1,vidaMaxJugador2;
     public string archivoDeGuardado;
     public Datos datos=new Datos();
     public Datos nuevosDatos = new Datos();
@@ -50,8 +50,13 @@ public class Controlador : MonoBehaviour
 
         if (combate==1)
         {
-            jugadorBatalla = GameObject.FindGameObjectWithTag("Batalla");
-            jugadorBatalla.GetComponent<vida>().vidaActual = vidaJugador;
+            jugadorBatalla1 = GameObject.FindGameObjectWithTag("Batalla");
+            jugadorBatalla2 = GameObject.FindGameObjectWithTag("Player2");
+            jugadorBatalla1.GetComponent<PlayerFigther>().nivel = nuevosDatos.nivelJ1;
+            jugadorBatalla2.GetComponent<PlayerFigther>().nivel = nuevosDatos.nivelJ2;
+            //jugadorBatalla1.GetComponent<vida>().vidaActualJ1 = vidaJugador1;
+
+
             combate = 2;
         }
     }
@@ -66,7 +71,11 @@ public class Controlador : MonoBehaviour
             posJugador.enabled = false;
             posJugador.transform.position = datos.posicion;
             posJugador.enabled = true;
-            jugador.GetComponent<vida>().vidaActual = datos.vida;
+            jugador.GetComponent<vida>().vidaActualJ1 = datos.vidaJ1;
+            jugador.GetComponent<vida>().vidaActualJ2 = datos.vidaJ2;
+            jugador.GetComponent<vida>().nivelJ1 = datos.nivelJ1;
+            jugador.GetComponent<vida>().nivelJ2 = datos.nivelJ2;
+            jugador.GetComponent<vida>().actualizar=true;
 
 
         }
@@ -80,19 +89,32 @@ public class Controlador : MonoBehaviour
     {
          if (combate == 0)
         {
-            nuevosDatos.vida = jugador.GetComponent<vida>().vidaActual;
+            nuevosDatos.vidaJ1 = jugador.GetComponent<vida>().vidaActualJ1;
+            
+            nuevosDatos.vidaJ2 = jugador.GetComponent<vida>().vidaActualJ2;
+            vidaMaxJugador1 = jugador.GetComponent<vida>().vidaMaxJ1;
+            vidaMaxJugador2 = jugador.GetComponent<vida>().vidaMaxJ2;
             nuevosDatos.posicion = jugador.transform.position;
+            nuevosDatos.nivelJ1= jugador.GetComponent<vida>().nivelJ1;
+            nuevosDatos.nivelJ2 = jugador.GetComponent<vida>().nivelJ2;
         }
 
         else if (combate==2) 
         {
-            jugadorBatalla = GameObject.FindGameObjectWithTag("Batalla");
-            nuevosDatos.vida = (int)jugadorBatalla.GetComponent<PlayerFigther>().vida;
-            combate = 0;
             
+            
+            nuevosDatos.vidaJ1 = (int)jugadorBatalla1.GetComponent<PlayerFigther>().vidaAct();
+            nuevosDatos.vidaJ2 = (int)jugadorBatalla2.GetComponent<PlayerFigther>().vidaAct();
+            nuevosDatos.nivelJ1 = jugadorBatalla1.GetComponent<PlayerFigther>().nivel;
+            nuevosDatos.nivelJ2 = jugadorBatalla2.GetComponent<PlayerFigther>().nivel;
+            combate = 0;
         }
 
-        vidaJugador = nuevosDatos.vida;
+
+        vidaJugador1 = nuevosDatos.vidaJ1;
+        
+        vidaJugador2 = nuevosDatos.vidaJ2;
+
         string cadenaJSON=JsonUtility.ToJson(nuevosDatos);
 
         File.WriteAllText(archivoDeGuardado, cadenaJSON);

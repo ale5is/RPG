@@ -325,8 +325,8 @@ MonoBehaviour:
   animationDuration: 1
   selfInflicted: 0
   effectPrfb: {fileID: 244979840}
-  cantidad: -35
-  modifType: 0
+  cantidad: -6
+  modifType: 1
   critChance: 0
 --- !u!1 &372920644
 GameObject:
@@ -376,7 +376,7 @@ MonoBehaviour:
   animationDuration: 2
   selfInflicted: 0
   effectPrfb: {fileID: 372920644}
-  cantidad: -40
+  cantidad: -8
   modifType: 1
   critChance: 0
 --- !u!1001 &434862064
@@ -542,6 +542,14 @@ MonoBehaviour:
   statusPanel: {fileID: 132078245}
   combatManager: {fileID: 973044756}
   modificarEstados: []
+  vida: 0
+  vidaMax: 0
+  nivel: 1
+  xp: 0
+  ataque: 0
+  defensa: 0
+  espiritu: 0
+  baseXP: 50
 --- !u!136 &524582107
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -952,6 +960,14 @@ MonoBehaviour:
   statusPanel: {fileID: 900352928}
   combatManager: {fileID: 973044756}
   modificarEstados: []
+  vida: 0
+  vidaMax: 0
+  nivel: 1
+  xp: 0
+  ataque: 0
+  defensa: 0
+  espiritu: 0
+  baseXP: 50
 --- !u!1 &605168786
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,7 +1084,7 @@ MonoBehaviour:
   animationDuration: 2
   selfInflicted: 0
   effectPrfb: {fileID: 610331179}
-  cantidad: -40
+  cantidad: -8
   modifType: 1
   critChance: 0
 --- !u!1 &647865945 stripped
@@ -1636,8 +1652,8 @@ MonoBehaviour:
   animationDuration: 1
   selfInflicted: 0
   effectPrfb: {fileID: 942957765}
-  cantidad: -35
-  modifType: 0
+  cantidad: -5
+  modifType: 1
   critChance: 0
 --- !u!114 &945026030 stripped
 MonoBehaviour:
@@ -2209,6 +2225,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -3595212365733343040, guid: 40085838b83b4d2468db4c6bdebc8cb5, type: 3}
+      propertyPath: vida
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3595212365733343040, guid: 40085838b83b4d2468db4c6bdebc8cb5, type: 3}
+      propertyPath: nivel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3595212365733343040, guid: 40085838b83b4d2468db4c6bdebc8cb5, type: 3}
       propertyPath: skillPanel
       value: 
       objectReference: {fileID: 155941099}
@@ -2269,13 +2293,37 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2031685542362855970, guid: 40085838b83b4d2468db4c6bdebc8cb5, type: 3}
+      propertyPath: cantidad
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031685542362855970, guid: 40085838b83b4d2468db4c6bdebc8cb5, type: 3}
       propertyPath: effectPrfb
       value: 
       objectReference: {fileID: 214230816}
+    - target: {fileID: 2320356856545739786, guid: 40085838b83b4d2468db4c6bdebc8cb5, type: 3}
+      propertyPath: nivelJ1
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320356856545739786, guid: 40085838b83b4d2468db4c6bdebc8cb5, type: 3}
+      propertyPath: nivelJ2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320356856545739786, guid: 40085838b83b4d2468db4c6bdebc8cb5, type: 3}
+      propertyPath: vidaActual
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4129904497906790547, guid: 40085838b83b4d2468db4c6bdebc8cb5, type: 3}
       propertyPath: effectPrfb
       value: 
       objectReference: {fileID: 214230816}
+    - target: {fileID: 4308263446005896540, guid: 40085838b83b4d2468db4c6bdebc8cb5, type: 3}
+      propertyPath: cantidad
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4308263446005896540, guid: 40085838b83b4d2468db4c6bdebc8cb5, type: 3}
+      propertyPath: modifType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4308263446005896540, guid: 40085838b83b4d2468db4c6bdebc8cb5, type: 3}
       propertyPath: effectPrfb
       value: 
@@ -2284,6 +2332,14 @@ PrefabInstance:
       propertyPath: effectPrfb
       value: 
       objectReference: {fileID: 214230816}
+    - target: {fileID: 8540726087613947752, guid: 40085838b83b4d2468db4c6bdebc8cb5, type: 3}
+      propertyPath: cantidad
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9195628544509580600, guid: 40085838b83b4d2468db4c6bdebc8cb5, type: 3}
+      propertyPath: cantidad
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 9195628544509580600, guid: 40085838b83b4d2468db4c6bdebc8cb5, type: 3}
       propertyPath: effectPrfb
       value: 
@@ -2929,6 +2985,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6543686213076876290, guid: 04bd1b7f10b07ca4b887a9a8cfe36da7, type: 3}
+      propertyPath: nivelJ1
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6543686213076876290, guid: 04bd1b7f10b07ca4b887a9a8cfe36da7, type: 3}
+      propertyPath: nivelJ2
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7674491537227459770, guid: 04bd1b7f10b07ca4b887a9a8cfe36da7, type: 3}
       propertyPath: camera
       value: 
@@ -3549,15 +3613,51 @@ PrefabInstance:
       objectReference: {fileID: 2203446522803987229, guid: 04bd1b7f10b07ca4b887a9a8cfe36da7, type: 3}
     - target: {fileID: 8537774103110766184, guid: 15ddbb12f0e1a5d408647cf3171aa79b, type: 3}
       propertyPath: datos.vida
-      value: 80
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8537774103110766184, guid: 15ddbb12f0e1a5d408647cf3171aa79b, type: 3}
       propertyPath: vidaJugador
-      value: 80
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8537774103110766184, guid: 15ddbb12f0e1a5d408647cf3171aa79b, type: 3}
+      propertyPath: datos.vidaJ1
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8537774103110766184, guid: 15ddbb12f0e1a5d408647cf3171aa79b, type: 3}
+      propertyPath: datos.vidaJ2
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8537774103110766184, guid: 15ddbb12f0e1a5d408647cf3171aa79b, type: 3}
+      propertyPath: vidaJugador1
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8537774103110766184, guid: 15ddbb12f0e1a5d408647cf3171aa79b, type: 3}
+      propertyPath: vidaJugador2
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8537774103110766184, guid: 15ddbb12f0e1a5d408647cf3171aa79b, type: 3}
       propertyPath: vidaMaxJugador
       value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 8537774103110766184, guid: 15ddbb12f0e1a5d408647cf3171aa79b, type: 3}
+      propertyPath: vidaMaxJugador1
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8537774103110766184, guid: 15ddbb12f0e1a5d408647cf3171aa79b, type: 3}
+      propertyPath: vidaMaxJugador2
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8537774103110766184, guid: 15ddbb12f0e1a5d408647cf3171aa79b, type: 3}
+      propertyPath: datos.posicion.x
+      value: -0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8537774103110766184, guid: 15ddbb12f0e1a5d408647cf3171aa79b, type: 3}
+      propertyPath: datos.posicion.y
+      value: 2.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 8537774103110766184, guid: 15ddbb12f0e1a5d408647cf3171aa79b, type: 3}
+      propertyPath: datos.posicion.z
+      value: -71.69
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3667,6 +3767,26 @@ PrefabInstance:
     - target: {fileID: 367927766862016096, guid: 73a9b44de305fc44cb12b42e77b74d33, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 656024624965253340, guid: 73a9b44de305fc44cb12b42e77b74d33, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 656024624965253340, guid: 73a9b44de305fc44cb12b42e77b74d33, type: 3}
+      propertyPath: m_FillCenter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 656024624965253340, guid: 73a9b44de305fc44cb12b42e77b74d33, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 656024624965253340, guid: 73a9b44de305fc44cb12b42e77b74d33, type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: 1.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 656024624965253340, guid: 73a9b44de305fc44cb12b42e77b74d33, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1331925456746082376, guid: 73a9b44de305fc44cb12b42e77b74d33, type: 3}
       propertyPath: m_SizeDelta.x
@@ -4153,7 +4273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3169690628044780013, guid: 3009e3ac2545f664aa176d8990dbcff0, type: 3}
       propertyPath: m_margin.z
-      value: -516.89746
+      value: -671.74286
       objectReference: {fileID: 0}
     - target: {fileID: 3169690628044780013, guid: 3009e3ac2545f664aa176d8990dbcff0, type: 3}
       propertyPath: m_fontSizeBase
@@ -4648,6 +4768,10 @@ PrefabInstance:
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1183919366954316957, guid: 296dcfbe084c4d04799305f275bd59cb, type: 3}
+      propertyPath: nivel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183919366954316957, guid: 296dcfbe084c4d04799305f275bd59cb, type: 3}
       propertyPath: skillPanel
       value: 
       objectReference: {fileID: 155941099}
@@ -4664,9 +4788,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 973044756}
     - target: {fileID: 1664268308416236903, guid: 296dcfbe084c4d04799305f275bd59cb, type: 3}
+      propertyPath: cantidad
+      value: -8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1664268308416236903, guid: 296dcfbe084c4d04799305f275bd59cb, type: 3}
       propertyPath: effectPrfb
       value: 
       objectReference: {fileID: 214230816}
+    - target: {fileID: 2881625908171604421, guid: 296dcfbe084c4d04799305f275bd59cb, type: 3}
+      propertyPath: cantidad
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2881625908171604421, guid: 296dcfbe084c4d04799305f275bd59cb, type: 3}
+      propertyPath: modifType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2881625908171604421, guid: 296dcfbe084c4d04799305f275bd59cb, type: 3}
       propertyPath: effectPrfb
       value: 
@@ -4731,6 +4867,18 @@ PrefabInstance:
       propertyPath: effectPrfb
       value: 
       objectReference: {fileID: 214230816}
+    - target: {fileID: 6922354910693849217, guid: 296dcfbe084c4d04799305f275bd59cb, type: 3}
+      propertyPath: cantidad
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6927956326966060852, guid: 296dcfbe084c4d04799305f275bd59cb, type: 3}
+      propertyPath: nivelJ1
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6927956326966060852, guid: 296dcfbe084c4d04799305f275bd59cb, type: 3}
+      propertyPath: nivelJ2
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6927956326966060852, guid: 296dcfbe084c4d04799305f275bd59cb, type: 3}
       propertyPath: vidaActual
       value: 40

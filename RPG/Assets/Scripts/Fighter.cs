@@ -17,6 +17,12 @@ public abstract class Fighter : MonoBehaviour
     {
         get=> this.stats.Hp> 0;
     }
+
+    public float vidaAct()
+    {
+        return this.stats.Hp;
+        
+    }
     protected virtual void Start()
     {
         this.statusPanel.setStats(this.nombre, this.stats);

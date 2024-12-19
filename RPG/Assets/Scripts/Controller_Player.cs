@@ -79,11 +79,18 @@ public class Controller_Player : MonoBehaviour
         {
             Debug.Log("a");
             numEscena=other.GetComponent<CambiarEscena>().escena;
+            controlador.GetComponent<Controlador>().CargarDatos();
             //controlador.GetComponent<Controlador>().activar = 1;
-            
+
             SceneManager.LoadScene(numEscena);
         }
         else { }
     }
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Spawn"))
+        {
+            controlador.GetComponent<Controlador>().GuardarDatos();
+        }
+    }
 }
