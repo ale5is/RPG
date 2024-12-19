@@ -9,4 +9,5 @@ public class Datos
     public Vector3 posicion;
     public int vidaJ1,vidaJ2;
     public int nivelJ1,nivelJ2;
+    public int xpRequerido;
 }

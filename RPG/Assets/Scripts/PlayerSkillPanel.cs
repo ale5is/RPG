@@ -28,7 +28,7 @@ public class PlayerSkillPanel : MonoBehaviour
     }
     public void OnSkillButtonClick(int index)
     {
-        this.targetFigther.EjecturSkill(index);
+        this.targetFigther.EjecutarSkill(index);
     }
     public void MostrarJugador(PlayerFigther newTarget)
     {
