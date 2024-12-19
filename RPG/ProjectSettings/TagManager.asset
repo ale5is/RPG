@@ -17,6 +17,9 @@ TagManager:
   - Objeto
   - Batalla
   - Spawn
+  - canvas
+  - anim
+  - anim2
   layers:
   - Default
   - TransparentFX

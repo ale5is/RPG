@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,12 +16,17 @@ public class Controller_Player : MonoBehaviour
     public int numEscena;
     public GameObject controlador;
     public CanvasController canvasController;
+    public Animator anim;
+    public TMP_Text vida,nivel;
+    public vida vidaJ1;
 
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
         controlador = GameObject.FindGameObjectWithTag("Save");
-        
+        vidaJ1= GetComponent<vida>();
+
+
         if (Controller_Player.Instance == null)
         {
             Controller_Player.Instance = this;
@@ -37,6 +43,8 @@ public class Controller_Player : MonoBehaviour
         if (controlador.GetComponent<Controlador>().combate==0)
         {
             Movement();
+            vida.text=vidaJ1.vidaActualJ1.ToString()+"/"+vidaJ1.vidaMaxJ1.ToString();
+            nivel.text = "N." + vidaJ1.nivelJ1.ToString();
         }
         
     }
@@ -47,6 +55,14 @@ public class Controller_Player : MonoBehaviour
         Vector3 movimiento = Vector3.zero;
         if( hor != 0 || ver != 0)
         {
+            if( hor > 0)
+            {
+                transform.localScale=new Vector3(-2,2,2);
+            }
+            else
+            {
+                transform.localScale = new Vector3(2, 2, 2);
+            }
             Vector3 forward = camera.forward;
             forward.y = 0;
             forward.Normalize();
@@ -58,7 +74,11 @@ public class Controller_Player : MonoBehaviour
             Vector3 direccion=camera.forward*ver+camera.right*hor;
             direccion.Normalize();
             movimiento=direccion * speed * Time.deltaTime;
-
+            anim.SetBool("caminando", true);
+        }
+        else
+        {
+            anim.SetBool("caminando", false);
         }
         movimiento.y += gravedad * Time.deltaTime;
         controller.Move( movimiento );
