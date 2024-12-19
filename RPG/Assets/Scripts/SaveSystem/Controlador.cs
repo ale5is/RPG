@@ -6,7 +6,7 @@ using System.IO;
 public class Controlador : MonoBehaviour
 {
     // Referencias a objetos del jugador y de combate
-    public GameObject jugador, jugadorBatalla1, jugadorBatalla2;
+    public GameObject jugador, jugadorBatalla1, jugadorBatalla2,canvas;
 
     // Variables de vida y control
     public int vidaJugador1, vidaJugador2;
@@ -31,6 +31,7 @@ public class Controlador : MonoBehaviour
 
         // Encontrar al jugador en la escena
         jugador = GameObject.FindGameObjectWithTag("Player");
+        canvas= GameObject.FindGameObjectWithTag("canvas");
 
         // Implementar patrón Singleton
         if (Controlador.Instance == null)
@@ -71,11 +72,9 @@ public class Controlador : MonoBehaviour
             jugadorBatalla1 = GameObject.FindGameObjectWithTag("Batalla");
             jugadorBatalla2 = GameObject.FindGameObjectWithTag("Player2");
 
-            //jugadorBatalla1.GetComponent<PlayerFigther>().nivel = nuevosDatos.nivelJ1;
-            //jugadorBatalla2.GetComponent<PlayerFigther>().nivel = nuevosDatos.nivelJ2; 
-            //jugadorBatalla2.GetComponent<PlayerFigther>().experienciaRequerida = nuevosDatos.xpRequerido;
             jugadorBatalla1.GetComponent<vida>().nivelJ1 = nuevosDatos.nivelJ1;
             jugadorBatalla2.GetComponent<vida>().nivelJ2 = nuevosDatos.nivelJ2;
+            canvas.SetActive(false);
 
 
             combate = 2; // Cambiar el estado del combate
@@ -87,6 +86,7 @@ public class Controlador : MonoBehaviour
         // Verificar si existe un archivo de guardado
         if (File.Exists(archivoDeGuardado))
         {
+            canvas.SetActive(true);
             var posJugador = jugador.GetComponent<CharacterController>();
             string contenido = File.ReadAllText(archivoDeGuardado);
 
