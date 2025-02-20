@@ -40,11 +40,11 @@ public class anim : MonoBehaviour
         }
         if (id == 1)
         {
-            enemy1.ActivarAnimacionDaño();
+            enemy1.ActivarAnimacionDano();
         }
         if (id == 2)
         {
-            enemy2.ActivarAnimacionDaño();
+            enemy2.ActivarAnimacionDano();
         }
 
 

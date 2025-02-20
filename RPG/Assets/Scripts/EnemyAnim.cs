@@ -16,13 +16,13 @@ public class EnemyAnim : MonoBehaviour
     }
 
     // Método para activar la animación de daño
-    public void ActivarAnimacionDaño()
+    public void ActivarAnimacionDano()
     {
         animEnemigo.SetBool("quemado", true);
     }
 
     // Método para detener la animación de daño
-    public void DetenerAnimacionDaño()
+    public void DetenerAnimacionDano()
     {
         animEnemigo.SetBool("quemado", false);
     }

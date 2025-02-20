@@ -19,7 +19,7 @@ public class Controller_Camara : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    void Update()
+    void LateUpdate()
     {
         transform.position=seguir.position+new Vector3(0,0,-distancia);
     }
