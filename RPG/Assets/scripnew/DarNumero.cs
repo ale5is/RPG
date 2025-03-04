@@ -10,6 +10,7 @@ public class DarNumero : MonoBehaviour
     private void Start()
     {
         // Asignar números únicos cuando inicie la escena actual
+        //
         //AsignarNumerosUnicos();
     }
 
