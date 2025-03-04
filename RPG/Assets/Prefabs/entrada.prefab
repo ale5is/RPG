@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7853743763330009114}
   - component: {fileID: 845133841148673591}
   - component: {fileID: 2982357569031655942}
-  - component: {fileID: 4041776878260827611}
+  - component: {fileID: -381812469511644275}
   m_Layer: 0
   m_Name: entrada
   m_TagString: Puerta
@@ -106,7 +106,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4041776878260827611
+--- !u!114 &-381812469511644275
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7129439581293676276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f376f3be0dfd89e499f6a5ac9c6b9e95, type: 3}
+  m_Script: {fileID: 11500000, guid: 106fb5f935feece42998752719f2fe73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  escena: 2
+  NumeroEscena: 0
