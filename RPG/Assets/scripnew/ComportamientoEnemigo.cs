@@ -119,17 +119,31 @@ public class ComportamientoEnemigo : MonoBehaviour
         agente.velocity = Vector3.zero;
         agente.speed = 0f; // Detiene el movimiento
 
-        // Mirar al jugador mientras ataca
-        transform.LookAt(jugador.position);
+        // Obtener dirección hacia el jugador sin modificar la altura (eje Y)
+        Vector3 direccionHaciaJugador = (jugador.position - transform.position).normalized;
+        direccionHaciaJugador.y = 0; // Evita inclinaciones en X y Z
+
+        // Rotación gradual hacia el jugador
+        float duracionRotacion = 0.5f; // Tiempo en segundos para girar
+        float tiempoInicio = Time.time;
+        Quaternion rotacionInicial = transform.rotation;
+        Quaternion rotacionFinal = Quaternion.LookRotation(direccionHaciaJugador); // Solo gira en Y
+
+        while (Time.time < tiempoInicio + duracionRotacion)
+        {
+            transform.rotation = Quaternion.Slerp(rotacionInicial, rotacionFinal, (Time.time - tiempoInicio) / duracionRotacion);
+            yield return null; // Espera al siguiente frame
+        }
 
         anim.SetBool("Atacar", true); // Inicia animación de ataque
-        
+
         yield return new WaitForSeconds(1f); // Ajusta al tiempo de animación de ataque
 
         if (Vector3.Distance(transform.position, jugador.position) <= rangoDeAtaque)
         {
             jugador.GetComponent<VidaJugador>().RecibirDanio(danoDeAtaque);
         }
+
         StartCoroutine(EsperarAntesDeMoverse());
         anim.SetBool("Atacar", false); // Finaliza animación de ataque
         yield return new WaitForSeconds(tiempoEntreAtaques);
@@ -138,4 +152,6 @@ public class ComportamientoEnemigo : MonoBehaviour
         agente.isStopped = false;
         atacando = false;
     }
+
+
 }
